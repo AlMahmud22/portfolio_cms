@@ -1,41 +1,21 @@
 {
-  "name": "almahmud.me",
+  "name": "portfolio-cms-migration",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "Migration scripts for portfolio CMS",
+  "type": "module",
   "scripts": {
-    "test": "mocha"
+    "migrate": "node scripts/migrate.js",
+    "migrate:hero": "node scripts/migrate-hero.js",
+    "migrate:social": "node scripts/migrate-social.js",
+    "migrate:settings": "node scripts/migrate-settings.js",
+    "migrate:about": "node scripts/migrate-about.js",
+    "migrate:contact": "node scripts/migrate-contact.js",
+    "migrate:career": "node scripts/migrate-career.js",
+    "migrate:projects": "node scripts/migrate-projects.js",
+    "migrate:tools": "node scripts/migrate-tools.js",
+    "migrate:certifications": "node scripts/migrate-certifications.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AlMahmud22/almahmud.me.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/AlMahmud22/almahmud.me/issues"
-  },
-  "homepage": "https://github.com/AlMahmud22/almahmud.me#readme",
-  "description": "",
   "dependencies": {
-    "axios": "^1.7.9",
-    "bcryptjs": "^2.4.3",
-    "cors": "^2.8.5",
-    "dotenv": "^16.4.7",
-    "express": "^4.21.2",
-    "gsap": "^3.12.5",
-    "jsonwebtoken": "^9.0.2",
-    "mysql2": "^3.12.0",
-    "node": "^23.5.0",
-    "nodejs": "^0.0.0",
-    "react-router-dom": "^7.1.1",
-    "sass": "^1.83.0",
-    "sequelize": "^6.37.5",
-    "sqlite": "^5.1.1"
-  },
-  "devDependencies": {
-    "mocha": "^11.0.1",
-    "nodemon": "^3.1.9"
+    "@sanity/client": "^6.24.1"
   }
 }
