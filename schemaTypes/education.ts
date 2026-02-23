@@ -11,7 +11,9 @@ export default defineType({
       type: 'string',
       options: {
         list: [
+          {title: 'SSC (Secondary School Certificate)', value: 'SSC'},
           {title: 'HSC (Higher Secondary Certificate)', value: 'HSC'},
+          {title: 'Foundation (Bridging Courses)', value: 'Foundation'},
           {title: 'BSC (Bachelor of Science)', value: 'BSC'},
           {title: 'MSC (Master of Science)', value: 'MSC'},
           {title: 'PHD (Doctor of Philosophy)', value: 'PHD'},
