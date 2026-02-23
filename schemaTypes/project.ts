@@ -4,6 +4,9 @@ export default defineType({
   name: 'project',
   title: 'Project',
   type: 'document',
+  initialValue: {
+    featured: false,
+  },
   fields: [
     defineField({
       name: 'title',
@@ -45,6 +48,22 @@ export default defineType({
       type: 'boolean',
       description: 'Display on homepage or featured section',
       initialValue: false,
+    }),
+    defineField({
+      name: 'mainImage',
+      title: 'Main Image (Thumbnail)',
+      type: 'image',
+      description: 'Primary image shown on project cards',
+      options: { hotspot: true },
+      fields: [
+        {
+          name: 'alt',
+          title: 'Alt Text',
+          type: 'string',
+          validation: (Rule) => Rule.required(),
+        },
+      ],
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'techStack',

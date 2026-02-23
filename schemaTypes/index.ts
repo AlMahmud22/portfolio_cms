@@ -9,6 +9,8 @@ import certification from './certification'
 import contact from './contact'
 import socialLink from './socialLink'
 import settings from './settings'
+import blog from './blog'
+import comment from './comment'
 
 export const schemaTypes = [
   // Core sections
@@ -31,4 +33,8 @@ export const schemaTypes = [
   // Tools & Certifications
   tool,
   certification,
+
+  // Blog
+  blog,
+  comment,
 ]

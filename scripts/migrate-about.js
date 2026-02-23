@@ -1,4 +1,4 @@
-import {createOrUpdateDocument, logInfo, logSuccess, logError, client} from './utils.js'
+import { createOrUpdateDocument, logInfo, logSuccess, logError, client } from './utils.js'
 
 // About Data (without images - those need to be uploaded through Studio)
 const aboutData = {
@@ -14,7 +14,7 @@ const aboutData = {
         {
           _type: 'span',
           _key: 'span1',
-          text: "Hi, I'm SAM Al Mahmud, a passionate Full Stack Developer and Network Engineer with a love for creating innovative digital experiences. With expertise spanning web development, 3D design, and network infrastructure, I bring a unique perspective to every project.",
+          text: "Hi, I'm Sadik Al Mahmud, a passionate Full Stack Developer and Network Security Engineer with a love for creating innovative digital experiences. With expertise spanning web development, 3D visualizer, and network infrastructure, I bring a unique perspective to every strategic challenge.",
         },
       ],
     },
@@ -91,10 +91,10 @@ const aboutData = {
       _key: 'cmd1',
       command: 'whoami',
       output: [
-        'Name: SAM Al Mahmud',
-        'Title: Full Stack Developer & Network Engineer',
+        'Name: Sadik Al Mahmud',
+        'Title: Full Stack Dev & Network Security Engineer',
         'Location: Kuala Lumpur, Malaysia 🇲🇾',
-        'Tagline: Building the future, one line of code at a time',
+        'Tagline: Architecting the future, one line of strategic code at a time',
       ],
     },
     {
@@ -153,17 +153,17 @@ const aboutData = {
     },
   ],
   socialLinks: [
-    {_ref: 'social-github', _type: 'reference'},
-    {_ref: 'social-linkedin', _type: 'reference'},
-    {_ref: 'social-twitter', _type: 'reference'},
-    {_ref: 'social-email', _type: 'reference'},
+    { _ref: 'social-github', _type: 'reference' },
+    { _ref: 'social-linkedin', _type: 'reference' },
+    { _ref: 'social-twitter', _type: 'reference' },
+    { _ref: 'social-email', _type: 'reference' },
   ],
 }
 
 async function migrateAbout() {
   logInfo('Starting About migration...')
   logInfo('Note: Profile image must be uploaded manually through Sanity Studio')
-  
+
   try {
     await createOrUpdateDocument(aboutData)
     logSuccess('About migration completed!')
@@ -182,4 +182,4 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     .catch(() => process.exit(1))
 }
 
-export {migrateAbout}
+export { migrateAbout }

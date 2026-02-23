@@ -1,18 +1,18 @@
-import {createOrUpdateDocument, logInfo, logSuccess, logError} from './utils.js'
+import { createOrUpdateDocument, logInfo, logSuccess, logError } from './utils.js'
 
 // Sample Hero Data
 const heroData = {
   _id: 'hero-main',
   _type: 'hero',
   fullName: {
-    firstName: 'SAM',
+    firstName: 'Sadik',
     lastName: 'Al Mahmud',
   },
   titles: [
     'Full Stack Developer',
-    'Network Engineer',
-    '3D Designer',
-    'UI/UX Enthusiast',
+    'Network & Security Engineer',
+    '3D Visualizer & Video Editor',
+    'System Architect',
   ],
   terminalCommands: {
     greeting: '$ welcome',
@@ -28,7 +28,7 @@ const heroData = {
 
 async function migrateHero() {
   logInfo('Starting Hero migration...')
-  
+
   try {
     await createOrUpdateDocument(heroData)
     logSuccess('Hero migration completed!')
@@ -46,4 +46,4 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     .catch(() => process.exit(1))
 }
 
-export {migrateHero}
+export { migrateHero }

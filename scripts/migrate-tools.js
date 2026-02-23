@@ -2,7 +2,7 @@
 // Reads from tools.config.ts and creates Sanity documents
 // NOTE: Must run AFTER projects migration (tools reference projects)
 
-import {createOrUpdateDocument, logInfo, logSuccess, logError} from './utils.js'
+import { createOrUpdateDocument, logInfo, logSuccess, logError } from './utils.js'
 
 // Tools data to migrate
 const toolsData = [
@@ -18,8 +18,8 @@ const toolsData = [
     category: '3D',
     icon3DPath: '/models/tools/blender-logo.glb',
     relatedProjects: [
-      {_type: 'reference', _ref: 'project-desktop-1'},
-      {_type: 'reference', _ref: 'project-web-1'},
+      { _type: 'reference', _ref: 'project-desktop-1' },
+      { _type: 'reference', _ref: 'project-web-1' },
     ],
     website: 'https://www.blender.org',
     order: 1,
@@ -36,8 +36,8 @@ const toolsData = [
     category: 'Video',
     icon3DPath: '/models/tools/premiere-logo.glb',
     relatedProjects: [
-      {_type: 'reference', _ref: 'project-web-2'},
-      {_type: 'reference', _ref: 'project-desktop-2'},
+      { _type: 'reference', _ref: 'project-web-2' },
+      { _type: 'reference', _ref: 'project-desktop-2' },
     ],
     website: 'https://www.adobe.com/products/premiere.html',
     order: 2,
@@ -54,9 +54,9 @@ const toolsData = [
     category: 'Design',
     icon3DPath: '/models/tools/illustrator-logo.glb',
     relatedProjects: [
-      {_type: 'reference', _ref: 'project-web-1'},
-      {_type: 'reference', _ref: 'project-web-2'},
-      {_type: 'reference', _ref: 'project-desktop-1'},
+      { _type: 'reference', _ref: 'project-web-1' },
+      { _type: 'reference', _ref: 'project-web-2' },
+      { _type: 'reference', _ref: 'project-desktop-1' },
     ],
     website: 'https://www.adobe.com/products/illustrator.html',
     order: 3,
@@ -73,9 +73,9 @@ const toolsData = [
     category: 'Design',
     icon3DPath: '/models/tools/figma-logo.glb',
     relatedProjects: [
-      {_type: 'reference', _ref: 'project-web-1'},
-      {_type: 'reference', _ref: 'project-web-2'},
-      {_type: 'reference', _ref: 'project-web-3'},
+      { _type: 'reference', _ref: 'project-web-1' },
+      { _type: 'reference', _ref: 'project-web-2' },
+      { _type: 'reference', _ref: 'project-web-3' },
     ],
     website: 'https://www.figma.com',
     order: 4,
@@ -92,8 +92,8 @@ const toolsData = [
     category: 'Networking',
     icon3DPath: '/models/tools/cisco-logo.glb',
     relatedProjects: [
-      {_type: 'reference', _ref: 'project-network-1'},
-      {_type: 'reference', _ref: 'project-network-2'},
+      { _type: 'reference', _ref: 'project-network-1' },
+      { _type: 'reference', _ref: 'project-network-2' },
     ],
     website: 'https://www.netacad.com/courses/packet-tracer',
     order: 5,
@@ -110,12 +110,12 @@ const toolsData = [
     category: 'Development',
     icon3DPath: '/models/tools/vscode-logo.glb',
     relatedProjects: [
-      {_type: 'reference', _ref: 'project-web-1'},
-      {_type: 'reference', _ref: 'project-web-2'},
-      {_type: 'reference', _ref: 'project-web-3'},
-      {_type: 'reference', _ref: 'project-system-1'},
-      {_type: 'reference', _ref: 'project-system-2'},
-      {_type: 'reference', _ref: 'project-desktop-1'},
+      { _type: 'reference', _ref: 'project-web-1' },
+      { _type: 'reference', _ref: 'project-web-2' },
+      { _type: 'reference', _ref: 'project-web-3' },
+      { _type: 'reference', _ref: 'project-system-1' },
+      { _type: 'reference', _ref: 'project-system-2' },
+      { _type: 'reference', _ref: 'project-desktop-1' },
     ],
     website: 'https://code.visualstudio.com',
     order: 6,
@@ -132,13 +132,13 @@ const toolsData = [
     category: 'Development',
     icon3DPath: '/models/tools/git-logo.glb',
     relatedProjects: [
-      {_type: 'reference', _ref: 'project-web-1'},
-      {_type: 'reference', _ref: 'project-web-2'},
-      {_type: 'reference', _ref: 'project-web-3'},
-      {_type: 'reference', _ref: 'project-system-1'},
-      {_type: 'reference', _ref: 'project-system-2'},
-      {_type: 'reference', _ref: 'project-desktop-1'},
-      {_type: 'reference', _ref: 'project-desktop-2'},
+      { _type: 'reference', _ref: 'project-web-1' },
+      { _type: 'reference', _ref: 'project-web-2' },
+      { _type: 'reference', _ref: 'project-web-3' },
+      { _type: 'reference', _ref: 'project-system-1' },
+      { _type: 'reference', _ref: 'project-system-2' },
+      { _type: 'reference', _ref: 'project-desktop-1' },
+      { _type: 'reference', _ref: 'project-desktop-2' },
     ],
     website: 'https://github.com',
     order: 7,
@@ -155,8 +155,8 @@ const toolsData = [
     category: 'Development',
     icon3DPath: '/models/tools/docker-logo.glb',
     relatedProjects: [
-      {_type: 'reference', _ref: 'project-system-1'},
-      {_type: 'reference', _ref: 'project-system-2'},
+      { _type: 'reference', _ref: 'project-system-1' },
+      { _type: 'reference', _ref: 'project-system-2' },
     ],
     website: 'https://www.docker.com',
     order: 8,
@@ -173,25 +173,73 @@ const toolsData = [
     category: 'Video',
     icon3DPath: '/models/tools/after-effects-logo.glb',
     relatedProjects: [
-      {_type: 'reference', _ref: 'project-web-2'},
+      { _type: 'reference', _ref: 'project-web-2' },
     ],
     website: 'https://www.adobe.com/products/aftereffects.html',
     order: 9,
+  },
+  {
+    _id: 'tool-digitalocean',
+    _type: 'tool',
+    name: 'DigitalOcean',
+    slug: { _type: 'slug', current: 'digitalocean' },
+    description: 'Cloud infrastructure provider focused on simplifying web scaling for developers. Experienced in droplet management, load balancers, and managed databases.',
+    category: 'Cloud & Deployment',
+    icon3DPath: '/images/tools/digitalocean.svg',
+    relatedProjects: [],
+    website: 'https://www.digitalocean.com',
+    order: 10,
+  },
+  {
+    _id: 'tool-vercel',
+    _type: 'tool',
+    name: 'Vercel',
+    slug: { _type: 'slug', current: 'vercel' },
+    description: 'Platform for frontend developers, providing the speed and reliability needed to create at the edge. Expert in Next.js deployment and edge functions.',
+    category: 'Cloud & Deployment',
+    icon3DPath: '/images/tools/vercel.svg',
+    relatedProjects: [],
+    website: 'https://vercel.com',
+    order: 11,
+  },
+  {
+    _id: 'tool-sanity-cms',
+    _type: 'tool',
+    name: 'Sanity',
+    slug: { _type: 'slug', current: 'sanity' },
+    description: 'Structure content to power any experience. Proficient in GROQ, schema design, and custom Studio components.',
+    category: 'Cloud & Deployment',
+    icon3DPath: '/images/tools/sanity.svg',
+    relatedProjects: [],
+    website: 'https://www.sanity.io',
+    order: 12,
+  },
+  {
+    _id: 'tool-github-actions',
+    _type: 'tool',
+    name: 'GitHub Actions',
+    slug: { _type: 'slug', current: 'github-actions' },
+    description: 'Automate, customize, and execute your software development workflows right in your repository. Skilled in CI/CD pipeline automation.',
+    category: 'Cloud & Deployment',
+    icon3DPath: '/images/tools/github.svg',
+    relatedProjects: [],
+    website: 'https://github.com/features/actions',
+    order: 13,
   },
 ]
 
 export async function migrateTools() {
   logInfo('Starting Tools migration...')
-  
+
   let toolsCount = 0
-  
+
   try {
     for (const tool of toolsData) {
       await createOrUpdateDocument(tool)
       logInfo(`✓ Created tool: ${tool._id}`)
       toolsCount++
     }
-    
+
     logSuccess(`Tools migration completed! (${toolsCount} tools)`)
     logInfo('⚠️  Note: Tool images and videos need to be uploaded manually through Sanity Studio')
     return true

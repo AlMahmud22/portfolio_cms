@@ -24,6 +24,21 @@ export default defineType({
       validation: (Rule) => Rule.required().max(4).min(1),
     }),
     defineField({
+      name: 'profileImage',
+      title: 'Profile Image (Hero)',
+      type: 'image',
+      description: 'Image displayed in the hero section',
+      options: {hotspot: true},
+      fields: [
+        {
+          name: 'alt',
+          title: 'Alt Text',
+          type: 'string',
+          validation: (Rule) => Rule.required(),
+        },
+      ],
+    }),
+    defineField({
       name: 'terminalCommands',
       title: 'Terminal Commands',
       type: 'object',

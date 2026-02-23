@@ -4,6 +4,9 @@ export default defineType({
   name: 'certification',
   title: 'Certification',
   type: 'document',
+  initialValue: {
+    featured: false,
+  },
   fields: [
     defineField({
       name: 'name',

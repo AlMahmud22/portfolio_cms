@@ -31,6 +31,12 @@ export default defineType({
       rows: 3,
     }),
     defineField({
+      name: 'color',
+      title: 'Category Accent Color',
+      type: 'string',
+      description: 'Hex color for this category (e.g. #4a8b8d)',
+    }),
+    defineField({
       name: 'icon3DPath',
       title: '3D Icon Path',
       type: 'string',

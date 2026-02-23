@@ -1,21 +1,39 @@
 {
-  "name": "portfolio-cms-migration",
+  "name": "portfoliomahmudcms",
+  "private": true,
   "version": "1.0.0",
-  "description": "Migration scripts for portfolio CMS",
-  "type": "module",
+  "main": "package.json",
+  "license": "UNLICENSED",
   "scripts": {
-    "migrate": "node scripts/migrate.js",
-    "migrate:hero": "node scripts/migrate-hero.js",
-    "migrate:social": "node scripts/migrate-social.js",
-    "migrate:settings": "node scripts/migrate-settings.js",
-    "migrate:about": "node scripts/migrate-about.js",
-    "migrate:contact": "node scripts/migrate-contact.js",
-    "migrate:career": "node scripts/migrate-career.js",
-    "migrate:projects": "node scripts/migrate-projects.js",
-    "migrate:tools": "node scripts/migrate-tools.js",
-    "migrate:certifications": "node scripts/migrate-certifications.js"
+    "dev": "sanity dev",
+    "start": "sanity start",
+    "build": "sanity build",
+    "deploy": "sanity deploy",
+    "deploy-graphql": "sanity graphql deploy"
   },
+  "keywords": [
+    "sanity"
+  ],
   "dependencies": {
-    "@sanity/client": "^6.24.1"
+    "@sanity/vision": "^5.11.0",
+    "react": "^19.1",
+    "react-dom": "^19.1",
+    "sanity": "^5.11.0",
+    "styled-components": "^6.1.18"
+  },
+  "devDependencies": {
+    "@sanity/eslint-config-studio": "^6.0.0",
+    "@types/hast": "^3.0.4",
+    "@types/react": "^19.2.14",
+    "@types/unist": "^3.0.3",
+    "eslint": "^9.28",
+    "prettier": "^3.5",
+    "typescript": "^5.8"
+  },
+  "prettier": {
+    "semi": false,
+    "printWidth": 100,
+    "bracketSpacing": false,
+    "singleQuote": true
   }
 }

@@ -4,6 +4,10 @@ export default defineType({
   name: 'tool',
   title: 'Tool',
   type: 'document',
+  initialValue: {
+    proficiency: 50,
+    category: 'Development',
+  },
   fields: [
     defineField({
       name: 'name',

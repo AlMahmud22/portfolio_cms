@@ -1,7 +1,7 @@
 // Migration script for career data (education + jobs)
 // Reads from career.config.ts and creates Sanity documents
 
-import {createOrUpdateDocument, logInfo, logSuccess, logError} from './utils.js'
+import { createOrUpdateDocument, logInfo, logSuccess, logError } from './utils.js'
 
 // Education data to migrate
 const educationData = [
@@ -12,11 +12,11 @@ const educationData = [
     institution: 'Dhaka College',
     course: 'Higher Secondary Certificate - Science',
     dateRange: {
-      start: '2016-06',
-      end: '2018-05',
+      start: '2015-06',
+      end: '2017-05',
     },
     location: 'Dhaka, Bangladesh',
-    description: 'Completed Higher Secondary Certificate with focus on Science. Studied Physics, Chemistry, Mathematics, and Biology. Participated in science fairs and mathematics olympiads.',
+    description: 'Completed Higher Secondary Certificate with a focus on Science. One of the most prestigious colleges in Bangladesh.',
     order: 1,
   },
   {
@@ -24,13 +24,13 @@ const educationData = [
     _type: 'education',
     level: 'BSC',
     institution: 'Universiti Teknologi Malaysia (UTM)',
-    course: 'Bachelor of Computer Science',
+    course: 'Bachelor of Computer Science (Bioinformatics)',
     dateRange: {
       start: '2018-09',
-      end: '2022-06',
+      end: '2023-01',
     },
     location: 'Johor Bahru, Malaysia',
-    description: 'Graduated with Bachelor of Computer Science degree, specializing in Software Engineering and Network Systems. Achieved Dean\'s List recognition. Completed capstone project on distributed systems architecture. Active member of Computer Science Society and participated in hackathons and coding competitions.',
+    description: 'Graduated with Bachelor of Computer Science. Specialized in Bioinformatics and Software Engineering. Active in student activities and technical projects.',
     order: 2,
   },
 ]
@@ -110,10 +110,10 @@ const jobsData = [
 
 export async function migrateCareer() {
   logInfo('Starting Career (Education + Jobs) migration...')
-  
+
   let educationCount = 0
   let jobsCount = 0
-  
+
   try {
     // Migrate education entries
     for (const education of educationData) {
@@ -121,14 +121,14 @@ export async function migrateCareer() {
       logInfo(`✓ Created education: ${education._id}`)
       educationCount++
     }
-    
+
     // Migrate job entries
     for (const job of jobsData) {
       await createOrUpdateDocument(job)
       logInfo(`✓ Created job: ${job._id}`)
       jobsCount++
     }
-    
+
     logSuccess(`Career migration completed! (${educationCount} education entries, ${jobsCount} jobs)`)
     logInfo('⚠️  Note: Images and videos need to be uploaded manually through Sanity Studio')
     return true
