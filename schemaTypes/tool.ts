@@ -5,7 +5,6 @@ export default defineType({
   title: 'Tool',
   type: 'document',
   initialValue: {
-    proficiency: 50,
     category: 'Development',
   },
   fields: [
@@ -33,7 +32,6 @@ export default defineType({
       type: 'text',
       description: 'Description of how you use this tool',
       rows: 4,
-      validation: (Rule) => Rule.required().min(100).max(800),
     }),
     defineField({
       name: 'category',
@@ -46,6 +44,7 @@ export default defineType({
           {title: 'Design', value: 'Design'},
           {title: 'Development', value: 'Development'},
           {title: 'Networking', value: 'Networking'},
+          {title: 'Cloud & Deployment', value: 'Cloud & Deployment'},
         ],
       },
       validation: (Rule) => Rule.required(),
@@ -69,7 +68,6 @@ export default defineType({
               name: 'alt',
               title: 'Alt Text',
               type: 'string',
-              validation: (Rule) => Rule.required(),
             },
             {
               name: 'caption',
@@ -118,8 +116,7 @@ export default defineType({
       name: 'order',
       title: 'Display Order',
       type: 'number',
-      description: 'Order within category',
-      validation: (Rule) => Rule.required().min(0),
+      description: 'Order within category (lower number appears first)',
     }),
   ],
   orderings: [
