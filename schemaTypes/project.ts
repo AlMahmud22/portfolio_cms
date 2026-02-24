@@ -32,7 +32,6 @@ export default defineType({
       type: 'text',
       description: 'Detailed project description',
       rows: 6,
-      validation: (Rule) => Rule.required().min(100).max(1000),
     }),
     defineField({
       name: 'category',
@@ -60,10 +59,8 @@ export default defineType({
           name: 'alt',
           title: 'Alt Text',
           type: 'string',
-          validation: (Rule) => Rule.required(),
         },
       ],
-      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'techStack',
@@ -71,7 +68,6 @@ export default defineType({
       type: 'array',
       of: [{type: 'string'}],
       description: 'Technologies used in this project',
-      validation: (Rule) => Rule.required().min(1),
     }),
     defineField({
       name: 'images',
@@ -86,7 +82,6 @@ export default defineType({
               name: 'alt',
               title: 'Alt Text',
               type: 'string',
-              validation: (Rule) => Rule.required(),
             },
             {
               name: 'caption',
@@ -140,15 +135,21 @@ export default defineType({
           type: 'url',
           validation: (Rule) => Rule.uri({scheme: ['http', 'https']}),
         },
+        {
+          name: 'downloadUrl',
+          title: 'Download URL',
+          type: 'url',
+          description: 'External download link (e.g. GitHub Releases, Google Drive, Dropbox). Opens in a new tab.',
+          validation: (Rule) => Rule.uri({scheme: ['http', 'https']}),
+        },
       ],
-      description: 'Links to GitHub, live site, or demo',
+      description: 'Links to GitHub, live site, demo, or download',
     }),
     defineField({
       name: 'order',
       title: 'Display Order',
       type: 'number',
-      description: 'Order within category',
-      validation: (Rule) => Rule.required().min(0),
+      description: 'Order within category (lower number appears first)',
     }),
     defineField({
       name: 'publishedAt',
