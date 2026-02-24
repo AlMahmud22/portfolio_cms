@@ -7,31 +7,43 @@ export default defineType({
   fields: [
     defineField({
       name: 'platform',
-      title: 'Platform',
+      title: 'Platform Name',
       type: 'string',
-      description: 'Social media platform name (e.g., GitHub, LinkedIn)',
+      description: 'Display name of the platform (e.g., GitHub, LinkedIn, Bluesky)',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'url',
       title: 'URL',
-      type: 'url',
-      description: 'Full URL to social profile',
-      validation: (Rule) => Rule.required().uri({scheme: ['http', 'https']}),
+      type: 'string',
+      description: 'Full URL or mailto: link (e.g., https://github.com/you or mailto:you@domain.com)',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'icon',
-      title: 'Icon Name',
+      title: 'Lucide Icon Name',
       type: 'string',
-      description: 'Lucide React icon name (e.g., Github, Linkedin, Twitter, Mail)',
-      validation: (Rule) => Rule.required(),
+      description: [
+        'Icon name from lucide-react. Leave blank if uploading a custom icon image below.',
+        'Common values: Github · Linkedin · Twitter · Mail · Globe · Youtube · Instagram · Twitch · Discord · Slack · Figma · BookOpen · Code2 · ExternalLink',
+      ].join(' — '),
+    }),
+    defineField({
+      name: 'customIcon',
+      title: 'Custom Icon Image',
+      type: 'image',
+      description: 'Upload a custom icon (SVG or PNG) if the platform has no Lucide icon. Takes precedence over the icon name above.',
+      options: {
+        accept: 'image/svg+xml,image/png,image/webp',
+      },
     }),
     defineField({
       name: 'order',
       title: 'Display Order',
       type: 'number',
-      description: 'Order in which social links appear',
-      validation: (Rule) => Rule.required().min(0),
+      description: 'Order in which this link appears (lower = earlier)',
+      initialValue: 99,
+      validation: (Rule) => Rule.min(0),
     }),
   ],
   orderings: [
@@ -46,11 +58,13 @@ export default defineType({
       title: 'platform',
       subtitle: 'url',
       order: 'order',
+      media: 'customIcon',
     },
-    prepare({title, subtitle, order}) {
+    prepare({title, subtitle, order, media}) {
       return {
-        title: `${title}`,
-        subtitle: `Order: ${order} | ${subtitle}`,
+        title,
+        subtitle: `Order ${order ?? '—'} · ${subtitle}`,
+        media,
       }
     },
   },
