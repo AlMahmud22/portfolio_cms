@@ -4,6 +4,7 @@ import education from './education'
 import job from './job'
 import projectCategory from './projectCategory'
 import project from './project'
+import skill from './skill'
 import tool from './tool'
 import certification from './certification'
 import contact from './contact'
@@ -29,6 +30,7 @@ export const schemaTypes = [
   // Projects
   projectCategory,
   project,
+  skill,
   
   // Tools & Certifications
   tool,

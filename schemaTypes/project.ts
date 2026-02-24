@@ -64,10 +64,33 @@ export default defineType({
     }),
     defineField({
       name: 'techStack',
-      title: 'Tech Stack',
+      title: 'Tech Stack (deprecated)',
       type: 'array',
       of: [{type: 'string'}],
-      description: 'Technologies used in this project',
+      description: 'Legacy free-text field — use Skills and Tools below instead.',
+      hidden: true,
+    }),
+    defineField({
+      name: 'skills',
+      title: 'Skills',
+      type: 'array',
+      of: [{
+        type: 'reference',
+        to: [{type: 'skill'}],
+        options: { disableNew: false },
+      }],
+      description: 'Programming languages, frameworks, libraries, concepts used. Search to select.',
+    }),
+    defineField({
+      name: 'projectTools',
+      title: 'Tools',
+      type: 'array',
+      of: [{
+        type: 'reference',
+        to: [{type: 'tool'}],
+        options: { disableNew: false },
+      }],
+      description: 'Software tools and platforms used in this project. Search to select.',
     }),
     defineField({
       name: 'images',
