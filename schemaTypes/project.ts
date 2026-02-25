@@ -136,6 +136,32 @@ export default defineType({
       description: 'Demo videos or walkthroughs',
     }),
     defineField({
+      name: 'files',
+      title: 'Project Files (Downloads)',
+      type: 'array',
+      description: 'Upload any project files for download: .zip, .doc, .psd, .ai, .ae, .glb, .prproj, etc. File type is detected automatically.',
+      of: [
+        {
+          type: 'file',
+          title: 'File',
+          fields: [
+            {
+              name: 'label',
+              title: 'Label',
+              type: 'string',
+              description: 'Display name for the download link (e.g. "Source Files", "Design Assets")',
+            },
+            {
+              name: 'description',
+              title: 'Description',
+              type: 'string',
+              description: 'Optional short description of what this file contains',
+            },
+          ],
+        },
+      ],
+    }),
+    defineField({
       name: 'links',
       title: 'Project Links',
       type: 'object',
