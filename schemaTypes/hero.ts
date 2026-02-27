@@ -69,6 +69,15 @@ export default defineType({
       },
     }),
     defineField({
+      name: 'portfolioFile',
+      title: 'Static Portfolio File',
+      type: 'file',
+      description: 'Static portfolio PDF (shown as "View Static Portfolio" button)',
+      options: {
+        accept: '.pdf',
+      },
+    }),
+    defineField({
       name: 'scrollHintText',
       title: 'Scroll Hint Text',
       type: 'string',
