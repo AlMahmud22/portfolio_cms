@@ -44,6 +44,15 @@ export default defineType({
       type: 'number',
       description: 'Controls sort order in filters (lower = first)',
     }),
+    defineField({
+      name: 'logo',
+      title: 'Skill Logo',
+      type: 'image',
+      description: 'Optional logo. If not provided, text fallback will be used on the 3D globe.',
+      options: {
+        hotspot: true,
+      },
+    }),
   ],
   orderings: [
     {

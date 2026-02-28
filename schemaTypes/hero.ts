@@ -62,20 +62,16 @@ export default defineType({
     defineField({
       name: 'resumeFile',
       title: 'Resume File',
-      type: 'file',
-      description: 'PDF resume file for download',
-      options: {
-        accept: '.pdf',
-      },
+      type: 'reference',
+      to: [{type: 'fileAsset'}],
+      description: 'Select a File Asset for the resume',
     }),
     defineField({
       name: 'portfolioFile',
       title: 'Static Portfolio File',
-      type: 'file',
-      description: 'Static portfolio PDF (shown as "View Static Portfolio" button)',
-      options: {
-        accept: '.pdf',
-      },
+      type: 'reference',
+      to: [{type: 'fileAsset'}],
+      description: 'Select a File Asset for the static portfolio',
     }),
     defineField({
       name: 'scrollHintText',

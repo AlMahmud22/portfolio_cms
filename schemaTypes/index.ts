@@ -12,6 +12,7 @@ import socialLink from './socialLink'
 import settings from './settings'
 import blog from './blog'
 import comment from './comment'
+import fileAsset from './fileAsset'
 
 export const schemaTypes = [
   // Core sections
@@ -19,6 +20,7 @@ export const schemaTypes = [
   about,
   contact,
   settings,
+  fileAsset,
   
   // Supporting types
   socialLink,
